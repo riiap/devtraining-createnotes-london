@@ -10,6 +10,14 @@
 		$rootScope.noteID = id;
 		$rootScope.$emit('selectNote', id);
 	}
+  // Subscribe to event.  Set the new title and note values on the 
+	// c.data object
+	$rootScope.$on('updateTitle', function(event,data) { 
+		console.log("updateTitle event received: " + event);
+		console.log(data);
+		c.data.notes[c.notePos].title = data.title;
+		c.data.notes[c.notePos].note = data.note;
+	});	
 }]]></client_script>
         <controller_as>c</controller_as>
         <css/>
@@ -48,14 +56,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-01-10 07:34:32</sys_created_on>
         <sys_id>63d3bbdf0f322300bcb7409ce1050e59</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Notes List</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_63d3bbdf0f322300bcb7409ce1050e59</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-01-10 07:55:42</sys_updated_on>
+        <sys_updated_on>2019-01-10 10:33:43</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default">
   <div class="panel-heading clearfix">
     <h3 class="panel-title pull-left">
